@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 34,
+  "id": "166dee7c-768b-47bb-b64b-78baa58da966",
+  "activities": [
+    {
+      "id": "d20b1ae4-af41-4642-814c-827b093382a8",
+      "name": "iris",
+      "blocks": [
+        {
+          "id": "7912bdcd-7e80-4918-a1d9-a1785c0e2e9a",
+          "type": "Microsoft.DPrep.ReferenceActivityBlock",
+          "arguments": {
+            "reference": {
+              "referenceType": 1,
+              "referenceContainerPath": "./iris.dsource",
+              "referencedActivityId": "42e9a298-d627-432c-951c-18e5c706d160",
+              "referencedBranchId": null,
+              "referencedStep": null,
+              "anonymousSteps": null
+            }
+          }
+        },
+        {
+          "id": "f6fb6cb7-a923-421c-b1c8-a23764601fe0",
+          "type": "Microsoft.DPrep.SampleBlock",
+          "arguments": {
+            "samples": [
+              {
+                "sampleId": "35b0fc82-0340-44df-a705-8a972f01f692",
+                "sampleRevision": "06364fea-e1cb-4500-9f3a-3ee0627c3143",
+                "sampleRunner": {
+                  "id": null,
+                  "type": 0
+                },
+                "remoteGeneratorProperties": {},
+                "sampleStrategy": 3,
+                "topArguments": {
+                  "sampleCount": 10000
+                },
+                "randomNArguments": {
+                  "sampleCount": 10000
+                },
+                "randomPercentArguments": {
+                  "probability": 0.1
+                },
+                "allowAutoGen": true,
+                "isDisabled": false
+              }
+            ],
+            "activeSample": "35b0fc82-0340-44df-a705-8a972f01f692"
+          }
+        }
+      ],
+      "inspectors": [
+        {
+          "id": "04e7b0ba-b5b8-4e21-8150-0c1017d98aa1",
+          "type": "Microsoft.DPrep.DataQualityInspector",
+          "arguments": {},
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "d20b1ae4-af41-4642-814c-827b093382a8",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
+        }
+      ]
+    }
+  ],
+  "runConfigurations": []
+}

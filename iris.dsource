@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 34,
+  "id": "a726f40e-25c5-4b7d-bcde-7102c1734797",
+  "activities": [
+    {
+      "id": "42e9a298-d627-432c-951c-18e5c706d160",
+      "name": "iris",
+      "blocks": [
+        {
+          "id": "302c7602-bdd4-4d6f-869c-19242f03cef8",
+          "type": "Microsoft.DPrep.DataSourceBlock",
+          "arguments": {
+            "path": {
+              "target": 0,
+              "resourceDetails": [
+                {
+                  "path": "./iris.csv"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "9cc1617a-557a-4312-9a54-c7fdc374aed5",
+          "type": "Microsoft.DPrep.ParseDelimitedBlock",
+          "arguments": {
+            "preview": false,
+            "columnHeadersMode": 0,
+            "separator": ",",
+            "fileEncoding": 0,
+            "skipRowsMode": 0,
+            "handleQuotedLineBreaks": false
+          }
+        },
+        {
+          "id": "61697c79-8c62-47d7-bb41-2da99e633397",
+          "type": "Microsoft.DPrep.SetColumnTypesBlock",
+          "arguments": {
+            "columnConversion": [
+              {
+                "columnId": "Column4",
+                "typeProperty": 3
+              },
+              {
+                "columnId": "Column1",
+                "typeProperty": 3
+              },
+              {
+                "columnId": "Column2",
+                "typeProperty": 3
+              },
+              {
+                "columnId": "Column3",
+                "typeProperty": 3
+              }
+            ]
+          }
+        },
+        {
+          "id": "beabb7fb-a53a-4d40-a03c-3f4877c31f73",
+          "type": "Microsoft.DPrep.SampleBlock",
+          "arguments": {
+            "samples": [
+              {
+                "sampleId": "8d4b9137-1c99-47f9-bc16-9422196222df",
+                "sampleRevision": "b65c6af2-2712-4028-b0dd-0a824cd6db1c",
+                "sampleName": "Top 10000",
+                "sampleRunner": {
+                  "id": null,
+                  "type": 0
+                },
+                "remoteGeneratorProperties": {},
+                "sampleStrategy": 0,
+                "topArguments": {
+                  "sampleCount": 10000
+                },
+                "randomNArguments": {
+                  "sampleCount": 10000
+                },
+                "randomPercentArguments": {
+                  "probability": 0.1
+                },
+                "allowAutoGen": true,
+                "isDisabled": false
+              }
+            ],
+            "activeSample": "8d4b9137-1c99-47f9-bc16-9422196222df"
+          }
+        },
+        {
+          "id": "c273adfe-931e-4d27-9663-f9f6dfe224ad",
+          "type": "Microsoft.DPrep.HandlePathColumnBlock",
+          "arguments": {
+            "pathColumnOperation": 0
+          }
+        }
+      ],
+      "inspectors": [
+        {
+          "id": "329005a2-99dc-444b-92ca-5fb077e7a8db",
+          "type": "Microsoft.DPrep.DataQualityInspector",
+          "arguments": {},
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "42e9a298-d627-432c-951c-18e5c706d160",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
+        },
+        {
+          "id": "7a62878a-452c-4d00-ad11-758fa9f4728a",
+          "type": "Microsoft.DPrep.DataProfileInspector",
+          "arguments": {},
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "42e9a298-d627-432c-951c-18e5c706d160",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 0,
+              "referencedStepId": "c273adfe-931e-4d27-9663-f9f6dfe224ad",
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
+        }
+      ]
+    }
+  ],
+  "runConfigurations": []
+}
